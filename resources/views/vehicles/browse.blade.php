@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-2">
-                                <input type="text" id="input-search" class="form-control">
+                                <input type="text" id="input-search" placeholder="🔍 Buscar..." class="form-control">
                             </div>
                         </div>
                         <div class="row" id="div-results" style="min-height: 120px"></div>
@@ -59,25 +59,16 @@
 
     @include('partials.modal_deleted')
 
-
-
-
-
-
  
 @stop
 
 @section('css')
     <style>
-
-    
     </style>
 @stop
 
 @section('javascript')
     <script src="{{ url('js/main.js') }}"></script>
-        
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
     <script>
         var countPage = 10, order = 'id', typeOrder = 'desc';
         $(document).ready(() => {

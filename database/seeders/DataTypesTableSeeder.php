@@ -181,6 +181,42 @@ class DataTypesTableSeeder extends Seeder
                 'created_at' => '2025-02-13 10:19:02',
                 'updated_at' => '2025-02-13 10:20:29',
             ),
+            9 => 
+            array (
+                'id' => 10,
+                'name' => 'countries',
+                'slug' => 'countries',
+                'display_name_singular' => 'Pais',
+                'display_name_plural' => 'Paises',
+                'icon' => 'fa-solid fa-earth-americas',
+                'model_name' => 'App\\Models\\Country',
+                'policy_name' => NULL,
+                'controller' => NULL,
+                'description' => NULL,
+                'generate_permissions' => 1,
+                'server_side' => 0,
+                'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
+                'created_at' => '2025-02-14 13:53:52',
+                'updated_at' => '2025-02-14 14:04:55',
+            ),
+            10 => 
+            array (
+                'id' => 11,
+                'name' => 'departaments',
+                'slug' => 'departaments',
+                'display_name_singular' => 'Departamento',
+                'display_name_plural' => 'Departamentos',
+                'icon' => 'fa-solid fa-puzzle-piece',
+                'model_name' => 'App\\Models\\Departament',
+                'policy_name' => NULL,
+                'controller' => NULL,
+                'description' => NULL,
+                'generate_permissions' => 1,
+                'server_side' => 0,
+                'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
+                'created_at' => '2025-02-14 14:15:53',
+                'updated_at' => '2025-02-14 14:21:52',
+            ),
         ));
         
         

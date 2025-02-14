@@ -53,6 +53,7 @@ class PermissionsTableSeeder extends Seeder
         Permission::generateFor('categories');
         Permission::generateFor('pages');
 
+        Permission::generateFor('people');
         Permission::generateFor('vehicles');
         Permission::generateFor('vehicle_seats');
 

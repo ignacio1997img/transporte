@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-2">
-                                <input type="text" id="input-search" class="form-control">
+                                <input type="text" id="input-search" placeholder="🔍 Buscar..." class="form-control">
                             </div>
                         </div>
                         <div class="row" id="div-results" style="min-height: 120px"></div>

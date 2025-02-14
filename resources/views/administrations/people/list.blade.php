@@ -20,9 +20,9 @@
                     <td>
                         <table>
                             @php
-                                $image = asset('images/default.png');
-                                if($item->photo){
-                                    $image = asset('storage/'.str_replace('.', '-cropped.', $item->photo));
+                                $image = asset('image/default.png');
+                                if($item->image){
+                                    $image = asset('storage/'.str_replace('.', '-cropped.', $item->image));
                                 }
                                 $now = \Carbon\Carbon::now();
                                 $birthday = new \Carbon\Carbon($item->birth_date);
@@ -66,8 +66,14 @@
                     </td>
                 </tr>
                 @empty
-                    <tr style="text-align: center">
-                        <td colspan="7" class="dataTables_empty">No hay datos disponibles en la tabla</td>
+                    <tr>
+                        <td colspan="7">
+                            <h5 class="text-center" style="margin-top: 50px">
+                                <img src="{{ asset('image/empty.png') }}" width="120px" alt="" style="opacity: 0.8">
+                                <br><br>
+                                No hay resultados
+                            </h5>
+                        </td>
                     </tr>
                 @endforelse
             </tbody>
