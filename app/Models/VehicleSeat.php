@@ -15,10 +15,12 @@ class VehicleSeat extends Model
 
     protected $fillable = [
         'vehicle_id',
-        'numberSeat',
-        'row',
-        'column',
-        'description',
+        'seatNumber',
+        'label',
+        'position_x',
+        'position_y',
+        'is_driver',
+
         'status',
         'registerUser_id',
         'registerRole',
@@ -26,7 +28,7 @@ class VehicleSeat extends Model
         'deletedUser_id',
         'deletedRole',
         'deletedObservation'
-    ];
+    ];    
 
     public function vehicle() {
         return $this->belongsTo(Vehicle::class);

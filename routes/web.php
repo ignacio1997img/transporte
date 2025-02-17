@@ -36,6 +36,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['loggin']], function () {
 
     Route::get('vehicles', [VehicleController::class, 'index'])->name('voyager.vehicles.index');
     Route::get('vehicles/ajax/list', [VehicleController::class, 'list']);
+    Route::get('vehicles/{id}', [VehicleController::class, 'show'])->name('voyager.vehicles.show');
+    Route::post('save-seats', [VehicleController::class, 'saveSeats'])->name('save.seats');
+
 
 
 });

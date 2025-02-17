@@ -16,10 +16,13 @@ return new class extends Migration
         Schema::create('vehicle_seats', function (Blueprint $table) {
             $table->id();
             $table->foreignId('vehicle_id')->nullable()->constrained('vehicles');
-            $table->integer('numberSeat')->nullable();
-            $table->string('row')->nullable();
-            $table->string('column')->nullable();
-            $table->text('description')->nullable();
+            $table->string('seatNumber')->nullable(); // Número del asiento (null para el chofer)
+            $table->string('label')->nullable(); // Texto ingresado (nombre del chofer o texto del asiento)
+            $table->integer('position_x'); // Posición X del asiento
+            $table->integer('position_y'); // Posición Y del asiento
+            $table->boolean('is_driver')->default(false); // Indica si es el asiento del chofer
+
+
             $table->smallInteger('status')->default(1);
 
             $table->timestamps();            

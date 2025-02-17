@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 
 use Illuminate\Pagination\Paginator;    
 use TCG\Voyager\Facades\Voyager;
+// use App\Models\Country;
+// use App\Observers\CountryObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +30,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Paginator::useBootstrap();
+        // Registrar el Observer para el modelo Country y departsment "Eliminacion logica"
+        // Country::observe(CountryObserver::class);
 
     }
 }

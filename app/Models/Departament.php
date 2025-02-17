@@ -13,21 +13,12 @@ class Departament extends Model
 
     protected $dates = ['deleted_at'];
 
-    // protected $fillable = [  
-    //     'name',
-    //     'status',
+    protected $fillable = [
+        'country_id', 'name', 'issued', 'status', 'registerUser_id', 'registerRole', 'deletedUser_id', 'deletedRole', 'deletedObservation'
+    ];
 
-    //     'registerUser_id',
-    //     'registerRole',
-    //     'deleted_at',
-    //     'deletedUser_id',
-    //     'deletedRole',
-    //     'deletedObservation'
-    // ];
-
-
-    public function departaments()
+    public function country()
     {
-        return $this->hasMany(Departament::class, 'country_id');
+        return $this->belongsTo(Country::class);
     }
 }

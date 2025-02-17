@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
+use App\Models\VehicleSeat;
 use Illuminate\Http\Request;
+use Psy\Readline\Hoa\Console;
 
 class VehicleController extends Controller
 {
@@ -36,5 +38,43 @@ class VehicleController extends Controller
                     ->where('deleted_at', NULL)->orderBy('id', 'DESC')->paginate($paginate);
 
         return view('vehicles.list', compact('data'));
+    }
+
+    public function show($id)
+    {
+        $vehicle = Vehicle::where('deleted_at', null)->where('id', $id)->first();
+        $seats = VehicleSeat::where('vehicle_id', $id)->get();
+
+        return view('vehicles.read', compact('vehicle', 'seats'));
+    }
+
+
+    public function saveSeats(Request $request)
+    {
+        // Validar la solicitud
+        $request->validate([
+            'vehicle_id' => 'required|exists:vehicles,id',
+            'seats' => 'required|array',
+        ]);
+
+        $vehicleId = $request->input('vehicle_id');
+        $seats = $request->input('seats');
+
+        // Eliminar asientos existentes para este vehículo (opcional, si quieres sobrescribir)
+        VehicleSeat::where('vehicle_id', $vehicleId)->delete();
+
+        // Guardar los nuevos asientos
+        foreach ($seats as $seatData) {
+            VehicleSeat::create([
+                'vehicle_id' => $vehicleId,
+                'seatNumber' => $seatData['number'],
+                'label' => $seatData['text'],
+                'position_x' => $seatData['x'],
+                'position_y' => $seatData['y'],
+                'is_driver' => $seatData['isDriver'],
+            ]);
+        }
+
+        return response()->json(['message' => 'Asientos guardados exitosamente']);
     }
 }
