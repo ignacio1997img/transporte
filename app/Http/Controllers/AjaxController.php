@@ -24,18 +24,15 @@ class AjaxController extends Controller
         return response()->json($data);
     }
 
-
-
     public function peopleStore(Request $request){
         DB::beginTransaction();
         try {
-
+            // return $request;
             $people =People::create($request->all());
             DB::commit();
-            return response()->json(['people' => 1]);
+            return response()->json(['people' => $people]);
         } catch (\Throwable $th) {
             DB::rollback();
-            // dd($th);
             return response()->json(['error' => $th->getMessage()], 500);
         }
     }

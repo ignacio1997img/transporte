@@ -240,7 +240,6 @@
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="full_name">Género</label>
-                                {{-- <input type="text" name="ci" class="form-control" placeholder="123456789" required> --}}
                                 <select name="gender" id="gender" class="form-control select2" required>
                                     <option value="" disabled selected></option>
                                     <option value="masculino">Masculino</option>
@@ -251,7 +250,7 @@
 
                         <div class="form-group">
                             <label for="address">Dirección</label>
-                            <textarea name="address" class="form-control" rows="3" placeholder="C/ 18 de nov. Nro 123 zona central"></textarea>
+                            <textarea name="address" class="form-control" rows="3" required placeholder="C/ 18 de nov. Nro 123 zona central"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -469,8 +468,11 @@
                 e.preventDefault();
                 $('.btn-save-customer').attr('disabled', true);
                 $('.btn-save-customer').val('Guardando...');
+                // alert(1)
                 $.post($(this).attr('action'), $(this).serialize(), function(data){
-                    if(data.customer.id){
+                    toastr.success('Usuario creado', 'Éxito');
+                    
+                    if(data.people.id){
                         toastr.success('Usuario creado', 'Éxito');
                         $(this).trigger('reset');
                     }else{
