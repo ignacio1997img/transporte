@@ -13,19 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('vehicles', function (Blueprint $table) {
+        Schema::create('terminals', function (Blueprint $table) {
             $table->id();
-            $table->string('image',600)->nullable();      
-            $table->string('number')->nullable();
-            $table->string('year')->nullable();
-            $table->string('color')->nullable();
-            $table->string('model')->nullable();
-            $table->string('brand')->nullable();
-            $table->integer('ability')->nullable();
-            $table->string('numberChassis')->nullable();
-            $table->string('numberEngine')->nullable();
-            $table->string('numberRegistration')->nullable();
-            $table->text('description')->nullable();
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
+            $table->text('address')->nullable();
+            
             $table->smallInteger('status')->default(1);
 
             $table->timestamps();            
@@ -46,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vehicles');
+        Schema::dropIfExists('terminals');
     }
 };

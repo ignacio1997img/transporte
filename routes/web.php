@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\ErrorController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\SaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['loggin']], function () {
     Route::get('vehicles/ajax/list', [VehicleController::class, 'list']);
     Route::get('vehicles/{id}', [VehicleController::class, 'show'])->name('voyager.vehicles.show');
     Route::post('save-seats', [VehicleController::class, 'saveSeats'])->name('save.seats');
+
+    // Route::get('sales', [SaleController::class, 'index'])->name('sales.index');
+    // Route::get('sales/create', [SaleController::class, 'create'])->name('sales.create');
+    // Route::post('sales/store', [SaleController::class, 'create'])->name('sales.create');
+    
+    Route::resource('sales', SaleController::class);
+
+
+
+
+    
+
+    Route::get('people/list/ajax', [AjaxController::class, 'peopleList']);
+    Route::post('people/store', [AjaxController::class, 'peopleStore']);
+
 
 
 

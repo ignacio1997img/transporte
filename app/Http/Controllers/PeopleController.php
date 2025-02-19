@@ -13,11 +13,15 @@ class PeopleController extends Controller
     }
 
     public function index()
-    {
+    {  
+        $this->custom_authorize('browse_people');
+        
         return view('administrations.people.browse');
     }
     
-    public function list(){
+    public function list()
+    {
+        $this->custom_authorize('browse_people');
 
         $search = request('search') ?? null;
         $paginate = request('paginate') ?? 10;
@@ -30,7 +34,9 @@ class PeopleController extends Controller
                     ->OrWhereRaw($search ? "ci like '%$search%'" : 1)
                     ->OrWhereRaw($search ? "phone like '%$search%'" : 1);
                     })
-                    ->where('deleted_at', NULL)->orderBy('id', 'DESC')->paginate($paginate);
+                    // ->where('deleted_at', NULL)
+                    ->orderBy('id', 'DESC')
+                    ->paginate($paginate);
 
         return view('administrations.people.list', compact('data'));
     }

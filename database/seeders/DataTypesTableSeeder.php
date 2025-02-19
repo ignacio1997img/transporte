@@ -161,27 +161,9 @@ class DataTypesTableSeeder extends Seeder
                 'server_side' => 0,
                 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
                 'created_at' => '2025-02-13 10:14:21',
-                'updated_at' => '2025-02-13 12:23:08',
+                'updated_at' => '2025-02-19 15:27:03',
             ),
             8 => 
-            array (
-                'id' => 9,
-                'name' => 'vehicle_seats',
-                'slug' => 'vehicle-seats',
-                'display_name_singular' => 'Asiento',
-                'display_name_plural' => 'Asientos',
-                'icon' => 'fa-solid fa-chair',
-                'model_name' => 'App\\Models\\VehicleSeat',
-                'policy_name' => NULL,
-                'controller' => NULL,
-                'description' => NULL,
-                'generate_permissions' => 1,
-                'server_side' => 0,
-                'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
-                'created_at' => '2025-02-13 10:19:02',
-                'updated_at' => '2025-02-13 10:20:29',
-            ),
-            9 => 
             array (
                 'id' => 10,
                 'name' => 'countries',
@@ -199,7 +181,7 @@ class DataTypesTableSeeder extends Seeder
                 'created_at' => '2025-02-14 13:53:52',
                 'updated_at' => '2025-02-14 14:04:55',
             ),
-            10 => 
+            9 => 
             array (
                 'id' => 11,
                 'name' => 'departaments',
@@ -216,6 +198,24 @@ class DataTypesTableSeeder extends Seeder
                 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
                 'created_at' => '2025-02-14 14:15:53',
                 'updated_at' => '2025-02-14 14:21:52',
+            ),
+            10 => 
+            array (
+                'id' => 13,
+                'name' => 'terminals',
+                'slug' => 'terminals',
+                'display_name_singular' => 'Terminal',
+                'display_name_plural' => 'Terminales',
+                'icon' => 'fa-solid fa-bus-simple',
+                'model_name' => 'App\\Models\\Terminal',
+                'policy_name' => NULL,
+                'controller' => NULL,
+                'description' => NULL,
+                'generate_permissions' => 1,
+                'server_side' => 0,
+                'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null}',
+                'created_at' => '2025-02-19 15:13:08',
+                'updated_at' => '2025-02-19 15:13:08',
             ),
         ));
         

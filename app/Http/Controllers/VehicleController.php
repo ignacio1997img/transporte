@@ -16,11 +16,15 @@ class VehicleController extends Controller
 
     public function index()
     {
+        $this->custom_authorize('browse_vehicles');
         return view('vehicles.browse');
     }
 
 
-    public function list(){
+    public function list()
+    {
+        $this->custom_authorize('browse_vehicles');
+
 
         $search = request('search') ?? null;
         $paginate = request('paginate') ?? 10;
@@ -43,7 +47,13 @@ class VehicleController extends Controller
     public function show($id)
     {
         $vehicle = Vehicle::where('deleted_at', null)->where('id', $id)->first();
-        $seats = VehicleSeat::where('vehicle_id', $id)->get();
+        $seats = VehicleSeat::where('vehicle_id', $id)->where('deleted_at', null)->get();
+
+
+        if ($vehicle->ability != count($seats->where('is_driver', 0))) {
+            VehicleSeat::where('vehicle_id', $vehicle->id)->delete();
+            $seats = VehicleSeat::where('vehicle_id', $id)->where('deleted_at', null)->get();
+        }
 
         return view('vehicles.read', compact('vehicle', 'seats'));
     }
